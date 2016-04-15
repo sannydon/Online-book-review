@@ -26,6 +26,11 @@ cartApp.controller("cartCtrl", function ($scope, $http){
             alert("Product successfully added to the cart!")
         });
     };
+    $scope.addComment = function (productId) {
+        $http.put('/rest/comment/add/{productId}'+productId).success(function () {
+            alert("Comment successfully added!")
+        });
+    };
 
     $scope.removeFromCart = function (productId) {
         $http.put('/eMusicStore/rest/cart/remove/'+productId).success(function (data) {
@@ -42,4 +47,33 @@ cartApp.controller("cartCtrl", function ($scope, $http){
 
         return grandTotal;
     };
+    
+    $http.get('/api')
+    .success(function (result) {
+
+        $scope.rules = result;
+
+    })
+    .error(function (data, status) {
+
+        console.log(data);
+
+    });
+
+$scope.newRule = '';
+$scope.addRule = function (productId) {
+    $http.post('/controller/rest/comment/add/'+productId, { newRule: $scope.newRule })
+        .success(function (result) {
+            alert("success");
+            console.log(result);
+            $scope.rules = result;
+            $scope.newRule = '';
+
+        })
+        .error(function (data, status) {
+            alert("error"+status);
+            console.log(data);
+
+        });
+};
 });

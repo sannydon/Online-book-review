@@ -28,15 +28,13 @@
                     <p>
                         <strong>Condition</strong> : ${product.productCondition}
                     </p>
-                    <h4>${product.productPrice} USD</h4>
+                    <h4>${product.productPrice} USD ${param.role}</h4>
 
                     <br>
 
                     <c:set var="role" scope="page" value="${param.role}" />
                     <c:set var="url" scope="page" value="/product/productList" />
-                  <0 <c:if test="${role='admin'}">
-                        <c:set var="url" scope="page" value="/admin/productInventory" />
-                    </c:if>
+                  
  
                     <p ng-controller="cartCtrl">
                         <a href="<c:url value="${url}" />" class="btn btn-default">Back</a>
@@ -49,9 +47,15 @@
                     </p>
                 </div>
             </div>
+            <form class="form-inline" role="form" ng-controller="cartCtrl">
+            <div class="form-group">
+                <input class="form-control" name="comment" ng-model="newRule" type="text" placeholder="Your comments" />
+            </div>
+             <a  ng-click="addRule('${product.productId}')" class="btn btn-default">Addd</a>
+        </form>
+            
         </div>
-
-
+ 
 
         <script src="<c:url value="/resources/js/controller.js" /> "></script>
         <%@include file="/WEB-INF/views/template/footer.jsp" %>
