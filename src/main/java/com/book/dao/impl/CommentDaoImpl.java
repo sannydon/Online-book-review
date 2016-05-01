@@ -46,11 +46,13 @@ public class CommentDaoImpl implements CommentDao {
 	        return (Comments) query.uniqueResult();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Comments> getComments(int productId) {
 		// TODO Auto-generated method stub
 		  Session session = sessionFactory.getCurrentSession();
 	        Query query = session.createQuery("from Comments where productId = ?");
+	        query.setInteger(0, productId);
 	        List<Comments> commentList = query.list();
 	        session.flush();
 	        return commentList;

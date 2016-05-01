@@ -13,9 +13,7 @@ import com.book.service.CustomerService;
 import javax.validation.Valid;
 import java.util.List;
 
-/**
- * Created by Le on 1/25/2016.
- */
+
 
 @Controller
 public class RegisterController {

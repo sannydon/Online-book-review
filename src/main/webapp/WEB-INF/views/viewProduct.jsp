@@ -8,11 +8,11 @@
         <div class="page-header">
             <h1>Product Detail</h1>
 
-            <p class="lead">Here is the detail information of the product!        System.out.println(path);
+            <p class="lead">Here is the detail information of the product!
             </p>
         </div>
 
-        <div class="container" ng-app = "cartApp">
+        <div class="container" ng-app = "cartApp" ng-init="productId='${product.productId}'">
             <div class="row">
                 <div class="col-md-5">
                     <img src="<c:url value="/resources/images/${product.productId}.png" /> " alt="image"
@@ -28,7 +28,7 @@
                     <p>
                         <strong>Condition</strong> : ${product.productCondition}
                     </p>
-                    <h4>${product.productPrice} USD ${param.role}</h4>
+                    <h4>${product.productPrice} USD</h4>
 
                     <br>
 
@@ -36,23 +36,28 @@
                     <c:set var="url" scope="page" value="/product/productList" />
                   
  
-                    <p ng-controller="cartCtrl">
-                        <a href="<c:url value="${url}" />" class="btn btn-default">Back</a>
-                        <a href="#" class="btn btn-warning btn-large"
-                           ng-click="addToCart('${product.productId}')"><span
-                                class="glyphicon glyphicon-shopping-cart"></span>Order
-                            Now</a>
-                        <a href="<spring:url value="/customer/cart" />"
-                           class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span>View Cart</a>
-                    </p>
-                </div>
-            </div>
-            <form class="form-inline" role="form" ng-controller="cartCtrl">
+                    <p >
+                        <form class="form-inline" role="form" ng-controller="cartCtrl" >
+            <h3>Reviews:</h3>
+                <!--<div class="input-group input-group-lg" ng-repeat="rule in rules">
+                 <span class="input-group-addon" id="sizing-addon1">R</span>
+                 <input type="text" class="form-control" value="{{ rule.comment }}" disabled="disabled" aria-describedby="sizing-addon1">
+                 </div>-->
+                 <div class="well well-sm" ng-repeat="rule in rules">
+                 {{ rule.comment }}
+                 </div>
+                <br>
+                <c:if test="${pageContext.request.userPrincipal.name != null}">
             <div class="form-group">
                 <input class="form-control" name="comment" ng-model="newRule" type="text" placeholder="Your comments" />
             </div>
-             <a  ng-click="addRule('${product.productId}')" class="btn btn-default">Addd</a>
+             <a  ng-click="addRule('${product.productId}')" class="btn btn-primary">Add</a>
+              </c:if>
         </form>
+                    </p>
+                </div>
+            </div>
+            
             
         </div>
  

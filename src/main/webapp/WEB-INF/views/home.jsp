@@ -14,36 +14,35 @@
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <img class="first-slide home-image"
-                 src="<c:url value="/resources/images/back1.jpg" />"
+                 src="<c:url value="/resources/images/carasol1.jpg" />"
                  alt="First slide">
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Welcome to Le's Music Store</h1>
+                    <h1>Welcome to Online book review system</h1>
 
-                    <p>Here you can browse and buy Instruments, Records and music related Accessories. Order Now for
-                        Your Amazing New Kit!</p>
+                    <p>Before buying anything you see its reviews online to make sure we are buying the right thing. </p>
 
                 </div>
             </div>
         </div>
         <div class="item">
             <img class="second-slide home-image"
-                 src="<c:url value="/resources/images/back2.jpg" />"
+                 src="<c:url value="/resources/images/carasol2.jpg" />"
                  alt="Second slide">
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Facts You Should Know About Music</h1>
+                    <h1>Facts You Should Know About Information Technology</h1>
 
-                    <p>Music brings joy, to all of our hearts, It's one of those, emotional arts.</p>
+                    <p>Information technology (IT) is the application of computers to store, retrieve, transmit and manipulate data, often in the context of a business or other enterprise.</p>
 
                 </div>
             </div>
         </div>
         <div class="item">
             <img class="third-slide home-image"
-                 src="<c:url value="/resources/images/back3.jpg" />"
+                 src="<c:url value="/resources/images/carasol3.jpg" />"
                  alt="Third slide">
 
             <div class="container">
@@ -77,13 +76,13 @@
     <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-4">
-            <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Instrument" />"
+            <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Database" />"
                role="button">
-                <img class="img-circle" src="<c:url value="/resources/images/instrument.jpg" />" alt="Instrument
+                <img class="img-circle" src="<c:url value="/resources/images/databaseManagement.jpg" />" alt="Instrument
                 Image" width="140" height="140"></a>
 
-            <h2>Instrument</h2>
-            <p>Well crafted and delicate instruments.</p>
+            <h2>Database</h2>
+            <p>Checkout all database related book here</p>
 
         </div><!-- /.col-lg-4 -->
 
@@ -91,30 +90,39 @@
 
     <div class="row">
         <div class="col-lg-4">
-            <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Record" />"
+            <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Programming" />"
                role="button">
-                <img class="img-circle" src="<c:url value="/resources/images/record.jpg" />" alt="Instrument
+                <img class="img-circle" src="<c:url value="/resources/images/programming.png" />" alt="Instrument
                 Image" width="140" height="140"></a>
 
-            <h2>Discography</h2>
-            <p>An exceptional collections of music records in favor of the traditional and modern genre of jazz.</p>
+            <h2>Programming</h2>
+            <p>Checkout all programming related books here</p>
 
         </div><!-- /.col-lg-4 -->
 
     <div class="row">
         <div class="col-lg-4">
-            <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Accessory" />"
+            <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=MobileComputing" />"
                role="button">
-                <img class="img-circle" src="<c:url value="/resources/images/accessory.jpg" />" alt="Instrument
+                <img class="img-circle" src="<c:url value="/resources/images/mobilecomputing.jpg" />" alt="Instrument
                 Image" width="140" height="140"></a>
 
-            <h2>Accessories</h2>
-            <p>All musical and related geeky goods..</p>
+            <h2>Mobile Computing</h2>
+            <p>Checkout all Mobile application development books here</p>
 
         </div><!-- /.col-lg-4 -->
 
 
     </div><!-- /.row -->
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like" style="float: right;" data-href="https://www.facebook.com/search/top/?q=edureka" data-width="100" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+ <br><br>  
     <%@include file="/WEB-INF/views/template/footer.jsp" %>
 

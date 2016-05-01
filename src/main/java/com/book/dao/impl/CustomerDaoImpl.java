@@ -12,9 +12,6 @@ import com.book.model.Users;
 
 import java.util.List;
 
-/**
- * Created by Le on 1/25/2016.
- */
 
 @Repository
 @Transactional

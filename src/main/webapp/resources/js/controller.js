@@ -1,61 +1,29 @@
-/**
- * Created by Le on 1/11/2016.
- */
+
 
 var cartApp = angular.module ("cartApp", []);
 
 cartApp.controller("cartCtrl", function ($scope, $http){
+	// $scope.productId='';    
+	
+	$scope.refreshComment = function () {
+	    $http.get('/controller/rest/comment/'+$scope.productId).success(function (data) {
+	    	alert("inside refreshing");
+	    	$scope.rules=data;
+	    }).error(function (data, status) {
+	        alert(status);
+	        console.log(data);
 
-    $scope.refreshCart = function () {
-        $http.get('/eMusicStore/rest/cart/'+$scope.cartId).success(function (data) {
-           $scope.cart=data;
-        });
-    };
-
-    $scope.clearCart = function () {
-        $httpdelete('/eMusicStore/rest/cart/'+$scope.cartId).success($scope.refreshCart());
-    };
-
-    $scope.initCartId = function (cartId) {
-        $scope.cartId = cartId;
-        $scope.refreshCart(cartId);
-    };
-
-    $scope.addToCart = function (productId) {
-        $http.put('/eMusicStore/rest/cart/add/'+productId).success(function () {
-            alert("Product successfully added to the cart!")
-        });
-    };
-    $scope.addComment = function (productId) {
-        $http.put('/rest/comment/add/{productId}'+productId).success(function () {
-            alert("Comment successfully added!")
-        });
-    };
-
-    $scope.removeFromCart = function (productId) {
-        $http.put('/eMusicStore/rest/cart/remove/'+productId).success(function (data) {
-            $scope.refreshCart();
-        });
-    };
-
-    $scope.calGrandTotal = function () {
-        var grandTotal=0;
-
-        for (var i=0; i<$scope.cart.cartItems.length; i++) {
-            grandTotal+=$scope.cart.cartItems[i].totalPrice;
-        }
-
-        return grandTotal;
-    };
-    
-    $http.get('/api')
+	    });
+	};
+    $http.get('/controller/rest/comment/'+$scope.productId)
     .success(function (result) {
-
+       
         $scope.rules = result;
+        //alert( $scope.rules);
 
     })
     .error(function (data, status) {
-
+        alert(status);
         console.log(data);
 
     });
@@ -64,10 +32,12 @@ $scope.newRule = '';
 $scope.addRule = function (productId) {
     $http.post('/controller/rest/comment/add/'+productId, { newRule: $scope.newRule })
         .success(function (result) {
-            alert("success");
+           // alert("data inserted");
+        	
             console.log(result);
             $scope.rules = result;
             $scope.newRule = '';
+            //$scope.refreshComment();
 
         })
         .error(function (data, status) {
@@ -76,4 +46,6 @@ $scope.addRule = function (productId) {
 
         });
 };
+
+
 });

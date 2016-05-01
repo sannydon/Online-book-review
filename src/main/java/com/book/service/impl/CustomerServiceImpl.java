@@ -7,9 +7,7 @@ import com.book.service.CustomerService;
 
 import java.util.List;
 
-/**
- * Created by Le on 1/25/2016.
- */
+
 
 @Service
 public class CustomerServiceImpl implements CustomerService{

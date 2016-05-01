@@ -6,9 +6,7 @@ import java.util.List;
 
 import com.book.model.Product;
 
-/**
- * Created by Le on 1/6/2016.
- */
+
 public interface ProductDao {
 
     List<Product> getProductList();
